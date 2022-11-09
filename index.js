@@ -15,7 +15,7 @@ const DB = process.env.DB;
 app.use(express.json());
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "https://recipes-buddy-frontend.netlify.app",
   })
 );
 
@@ -106,7 +106,7 @@ app.post("/resetpassword", async function (req, res) {
     if (user) {
       let mailid = req.body.email;
       let rString = randomstring.generate(7);
-      let link = "http://localhost:3000/reset-password-page";
+      let link = "https://recipes-buddy-frontend.netlify.app/reset-password-page";
       await db
         .collection("register")
         .updateOne({ email: mailid }, { $set: { rString: rString } });
