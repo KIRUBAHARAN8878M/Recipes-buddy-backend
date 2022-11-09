@@ -19,6 +19,12 @@ app.use(
   })
 );
 
+
+app.get("/", function (req, res) {
+  res.send('<h1>Welcome to Recipes Buddy..</h1>')
+});
+
+
 let authenticate = (req, res, next) => {
   console.log(req.headers);
   if (req.headers.authorization) {
